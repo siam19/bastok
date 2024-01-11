@@ -118,6 +118,7 @@
     <h1 class="text-3xl font-bold hover:bg-sky-700 hover:text-sky-100 pt-10" >
         Hello world, This is Bastok
       </h1>
+      <p>Hmm maybe it is working who kwnos </p>
     </div>
 </main>
 
