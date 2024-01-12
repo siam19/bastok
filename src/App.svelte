@@ -5,26 +5,30 @@
 
 
   document.addEventListener("DOMContentLoaded", function () {
-    const mobileMenuButton = document.querySelector('[aria-controls="mobile-menu"]');
-    const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuButton = document.querySelector('[aria-controls="mobile-menu"]');
+  const mobileMenu = document.getElementById('mobile-menu');
 
-    mobileMenuButton.addEventListener('click', function () {
-      mobileMenu.classList.toggle('hidden');
-    });
+  // Initially hide the mobile menu by adding the 'hidden' class
+  mobileMenu.classList.add('hidden');
+
+  mobileMenuButton.addEventListener('click', function () {
+    mobileMenu.classList.toggle('hidden');
   });
+});
+
 
 
 
 </script>
 
 <main class="">
-    <div class="w-screen h-screen bg-sky-100">
-    <nav class="bg-zinc-950">
+    <div class="w-screen h-screen bg-zinc-950">
+    <nav class="bg-zinc-950 z-30">
         <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
           <div class="relative flex h-16 items-center justify-between">
             <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
               <!-- Mobile menu button-->
-              <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+              <button type="button" class="relative inline-flex items-center justify-center  text-gray-400  select-none " aria-controls="mobile-menu" aria-expanded="false">
                 <span class="absolute -inset-0.5"></span>
                 <span class="sr-only">Open main menu</span>
                 <!--
@@ -32,17 +36,12 @@
       
                   Menu open: "hidden", Menu closed: "block"
                 -->
-                <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                <svg class="ham hamRotate ham-menu fill-blue-100 size-16" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
+                  <path class="line top" d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20" />
+                  <path class="line middle" d="m 30,50 h 40" />
+                  <path class="line bottom" d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20" />
                 </svg>
-                <!--
-                  Icon when menu is open.
-      
-                  Menu open: "block", Menu closed: "hidden"
-                -->
-                <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
+                
               </button>
             </div>
             <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
@@ -82,9 +81,8 @@
                 <div class="flex space-x-4">
                   <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                   
-                  <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Team</a>
                   <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Projects</a>
-                  <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Calendar</a>
+                  <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Contact</a>
                 </div>
               </div>
             </div>
@@ -104,21 +102,25 @@
       
         <!-- Mobile menu, show/hide based on menu state. -->
         <div class="sm:hidden" id="mobile-menu">
-          <div class="space-y-1 px-2 pb-3 pt-2">
+          <div class="space-y-1 px-2 pb-3 pt-2 bg-blue-700">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Dashboard</a>
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Team</a>
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Projects</a>
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Calendar</a>
+            <a href="#" class="text-gray-300 hover:bg-zinc-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Projects</a>
+            <a href="#" class="text-gray-300 hover:bg-zinc-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Contact</a>
           </div>
         </div>
       </nav>
     
-    <img class="size-72" src="src\assets\bastok_logo.svg" alt="">
-    <h1 class="text-3xl font-bold hover:bg-sky-700 hover:text-sky-100 pt-10" >
-        Hello world, This is Bastok
-      </h1>
-      <p>Hmm maybe it is working who kwnos </p>
+    <!--<img class="size-72" src="src\assets\bastok_logo.svg" alt="">-->
+      <p class="text-lg text-slate-50 w-full pt text-center mt-5">
+        Hello, This is Bastok. <br>
+        Currently building this website. <br>
+
+
+        Contact me on instagram <br> <a class="text-cyan-300" href='https://www.instagram.com/bastok.art'>@bastok.art</a> <br><a class="text-cyan-300" href='https://www.instagram.com/siam_19'>@siam_19</a>
+
+        
+      </p>
+ 
     </div>
 </main>
 
@@ -126,4 +128,6 @@
   @tailwind utilities;
   @tailwind components;
   @tailwind base;
+
+  
 </style>
